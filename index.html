@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propose Day - Naveedu to Verushka ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #001f3f; /* Navy blue */
+            color: black;
+            overflow-x: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .intro {
+            text-align: center;
+            cursor: pointer;
+            font-size: 2em;
+            padding: 20px;
+            transition: all 0.5s;
+        }
+        .intro:hover {
+            transform: scale(1.05);
+        }
+        .main-container {
+            display: none;
+            flex-direction: column;
+            height: 100vh;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .gift-boxes {
+            display: flex;
+            justify-content: space-around;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+        .gift-box {
+            width: 200px;
+            height: 200px;
+            background-color: #003366; /* Dark blue box */
+            border: 5px solid #000080;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4em;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 10px;
+            color: black;
+            font-weight: bold;
+        }
+        .gift-box:hover {
+            transform: scale(1.1);
+            background-color: #004488;
+        }
+        .content {
+            display: none;
+            margin: 20px;
+            padding: 40px;
+            background-color: #003366;
+            border-radius: 15px;
+            color: black;
+            max-width: 800px;
+            margin: 20px auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        .content h2 {
+            text-align: center;
+            color: black;
+        }
+        .content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .quotes {
+            list-style: none;
+            padding: 0;
+        }
+        .quotes li {
+            background: rgba(255,255,255,0.2);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+            font-style: italic;
+        }
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #001f3f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <div class="intro" onclick="enterPage()">Click to see the page 🎁❤️</div>
+    
+    <div class="main-container" id="main">
+        <button class="back-btn" onclick="backToIntro()">← Back</button>
+        <h1 style="text-align: center; color: white; margin-bottom: 20px;">Happy Propose Day, Verushka! From your Naveedu 🥰</h1>
+        
+        <div class="gift-boxes">
+            <div class="gift-box" onclick="showContent(1)">🎁</div>
+            <div class="gift-box" onclick="showContent(2)">🎁</div>
+            <div class="gift-box" onclick="showContent(3)">🎁</div>
+        </div>
+        
+        <div id="content1" class="content">
+            <h2>💪 Be Strong, My Love – Quotes for You</h2>
+            <ul class="quotes">
+                <li>"Stay strong, my love. You have the courage to face anything and achieve greatness."</li>
+                <li>"The way you face challenges with confidence and grace inspires me endlessly."</li>
+                <li>"She is water. Strong enough to drown you, soft enough to cleanse you, and deep enough to save you."</li>
+                <li>"You alone are enough. You have nothing to prove to anybody."</li>
+                <li>"Your resilience in the face of adversity is impressive. Keep standing tall."</li>
+            </ul>
+            <p>Verushka, you are my strongest inspiration. Never give up – I've got your back always! 💕</p>
+        </div>
+        
+        <div id="content2" class="content">
+            <h2>😍 Things to Make You Happy & Special</h2>
+            <ul class="quotes">
+                <li>"Just thinking about you puts a smile on my face."</li>
+                <li>"Your smile is the sunshine that brightens my day, no matter how cloudy it is."</li>
+                <li>"You make every moment of my life worth living just by being in it."</li>
+                <li>"You are the most beautiful person, both inside and out. I am so lucky."</li>
+                <li>"Every day is sunnier and more special just because of you!"</li>
+            </ul>
+            <p>You make me the happiest, Verushka. You are so special to me! 🌟</p>
+        </div>
+        
+        <div id="content3" class="content">
+            <h2>💍 The Main Proposal Box – Will You Marry Me?</h2>
+            <p>Verushka, my love, today on Propose Day, I want to do this right. Not just words, but from the heart.</p>
+            <p>From the first moment, you've made my world brighter. You call me Naveedu, and that melts me every time. ❤️</p>
+            <p>I promise to love you, support you, make you laugh, and be your strength. Will you be mine forever?</p>
+            <p>Short romantic note: "Loving you is the best thing I have ever done." Let's grow old together.</p>
+            <p>Yes? Say yes, my Verushka! 🥺💖</p>
+        </div>
+    </div>
+
+    <script>
+        function enterPage() {
+            document.querySelector('.intro').style.display = 'none';
+            document.getElementById('main').style.display = 'flex';
+        }
+        
+        function backToIntro() {
+            document.getElementById('main').style.display = 'none';
+            document.querySelector('.intro').style.display = 'flex';
+        }
+        
+        function showContent(num) {
+            for (let i = 1; i <= 3; i++) {
+                document.getElementById('content' + i).style.display = 'none';
+            }
+            document.getElementById('content' + num).style.display = 'block';
+            window.scrollTo(0, document.getElementById('content' + num).offsetTop - 100);
+        }
+    </script>
+</body>
+</html>
