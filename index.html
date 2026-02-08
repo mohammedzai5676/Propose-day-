@@ -172,4 +172,27 @@
         }
     </script>
 </body>
+    <!-- ❤️ VERUSHKA'S SPECIAL SONG - CLICK TO PLAY ❤️ -->
+<div style="position:fixed;bottom:20px;right:20px;background:#003366;padding:15px;border-radius:20px;color:white;cursor:pointer;font-size:16px;border:2px solid white;box-shadow:0 4px 8px rgba(0,0,0,0.3);" onclick="toggleMusic()">
+    🎵 <strong>My Song for Verushka ❤️</strong> <span id="musicStatus">(Click Play)</span>
+</div>
+<audio id="bgMusic" loop preload="auto">
+    <source src="https://drive.google.com/uc?id=1BN1SZj6m9fAmVTuQ-3KZuw6K8ts8Sxu8&export=download" type="audio/mpeg">
+</audio>
+
+<script>
+let isPlaying = false;
+function toggleMusic() {
+    const audio = document.getElementById('bgMusic');
+    if(isPlaying) {
+        audio.pause(); 
+        document.getElementById('musicStatus').innerHTML = 'Stopped 💔';
+        isPlaying = false;
+    } else {
+        audio.play();
+        document.getElementById('musicStatus').innerHTML = 'Playing for Verushka ❤️';
+        isPlaying = true;
+    }
+}
+</script>
 </html>
