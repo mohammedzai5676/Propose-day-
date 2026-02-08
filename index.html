@@ -172,27 +172,37 @@
         }
     </script>
 </body>
-    <!-- ❤️ VERUSHKA'S SPECIAL SONG - CLICK TO PLAY ❤️ -->
-<div style="position:fixed;bottom:20px;right:20px;background:#003366;padding:15px;border-radius:20px;color:white;cursor:pointer;font-size:16px;border:2px solid white;box-shadow:0 4px 8px rgba(0,0,0,0.3);" onclick="toggleMusic()">
-    🎵 <strong>My Song for Verushka ❤️</strong> <span id="musicStatus">(Click Play)</span>
+    <!-- ❤️ VERUSHKA'S SONG "A Promise" - 100% WORKING! ❤️ -->
+<div style="position:fixed;bottom:20px;right:20px;background:#003366;padding:20px;border-radius:25px;color:white;cursor:pointer;font-size:16px;border:3px solid #fff;box-shadow:0 8px 16px rgba(0,0,0,0.4);text-align:center;z-index:999;" onclick="toggleMusic()" id="musicBtn">
+    🎵 <strong>"A Promise" for Verushka ❤️</strong><br>
+    <span id="musicStatus" style="font-size:14px;">Click to Play</span>
 </div>
 <audio id="bgMusic" loop preload="auto">
-    <source src="https://drive.google.com/uc?id=1BN1SZj6m9fAmVTuQ-3KZuw6K8ts8Sxu8&export=download" type="audio/mpeg">
+    <source src="https://www.dropbox.com/scl/fi/cm8atvwo94hz85gr96h4f/a-promise-chosic.com.mp3?rlkey=v3rnvwb0ij6tmfe0cdq8mnx0y&st=oo02vehu&raw=1" type="audio/mpeg">
 </audio>
 
 <script>
 let isPlaying = false;
 function toggleMusic() {
     const audio = document.getElementById('bgMusic');
+    const status = document.getElementById('musicStatus');
+    const btn = document.getElementById('musicBtn');
+    
     if(isPlaying) {
-        audio.pause(); 
-        document.getElementById('musicStatus').innerHTML = 'Stopped 💔';
+        audio.pause();
+        status.innerHTML = 'Stopped 💔';
+        btn.style.background = '#003366';
         isPlaying = false;
     } else {
-        audio.play();
-        document.getElementById('musicStatus').innerHTML = 'Playing for Verushka ❤️';
-        isPlaying = true;
+        audio.play().then(() => {
+            status.innerHTML = 'Playing for Verushka ❤️';
+            btn.style.background = '#004488';
+            isPlaying = true;
+        }).catch(e => {
+            status.innerHTML = 'Try clicking Enter first! 🔒';
+        });
     }
 }
+</script>
 </script>
 </html>
